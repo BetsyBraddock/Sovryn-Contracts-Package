@@ -1,11 +1,18 @@
 {
-  "name": "sovryn-contracts-package",
+  "name": "betsydinglybell",
   "version": "1.0.0",
   "description": "Contract addresses and ABIs used by the Sovryn Protocol",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "betsy_braddock",
-  "license": "ISC"
+  "author": "betsybraddock",
+  "license": "ISC",
+  "repository": {
+    "url": "https://github.com/BetsyBraddock/Sovryn-Contracts-Package.git"
+  },
+  "dependencies": {
+    "web3": "^1.4.0"
+  },
+  "type": "module"
 }

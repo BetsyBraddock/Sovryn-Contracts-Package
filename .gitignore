@@ -1,0 +1,10 @@
+node_modules
+.vscode/
+.DS_Store
+.env
+package-lock.json
+secrets
+tmp/*
+stderr.txt
+stdout.txt
+*.csv

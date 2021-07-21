@@ -1,8 +1,9 @@
-import contractsMainnet from "./contracts-mainnet.json"
-import contractsTestnet from "./contracts-testnet.json"
-import * as abis from "./abi"
+const contractsMainnet = require("./contracts-mainnet.json")
+const contractsTestnet = require("./contracts-testnet.json")
+const { contracts } = require("./build-contracts")
 
-exports.contractsMainnet = contractsMainnet
-exports.contractsTestnet = contractsTestnet
-exports.abis = abis
-
+module.exports = {
+    contractsMainnet: contractsMainnet,
+    contractsTestnet: contractsTestnet,
+    contracts: contracts
+}
