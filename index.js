@@ -3,7 +3,6 @@ const contractsTestnet = require("./contracts-testnet.json")
 const { contracts } = require("./build-contracts")
 
 module.exports = {
-    contractsMainnet: contractsMainnet,
-    contractsTestnet: contractsTestnet,
+    addresses: process.env.NETWORK_MODE === "mainnet" ? contractsMainnet : contractsTestnet,
     contracts: contracts
 }
