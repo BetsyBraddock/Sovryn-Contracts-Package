@@ -20,7 +20,7 @@ const addresses = process.env.NETWORK_MODE === "testnet" ? contractsTestnet : co
 const web3 = new Web3(process.env.NETWORK_MODE || "https://testnet2.sovryn.app/rpc");
 
 
-export const contracts = {
+module.exports = {
     sovrynProtocol: new web3.eth.Contract(abiComplete, addresses.Protocol.toLowerCase()),
 
     DOC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.DOC_lending.toLowerCase()),
