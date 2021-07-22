@@ -16,8 +16,8 @@ const abiLiquidityMining = require("./abi/mining_proxy.json");
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
 
-const addresses = process.env.NETWORK_MODE === "testnet" ? contractsTestnet : contractsMainnet
-const web3 = new Web3(process.env.NETWORK_MODE || "https://testnet2.sovryn.app/rpc");
+const addresses = process.env.NETWORK_MODE && process.env.NETWORK_MODE === "testnet" ? contractsTestnet : contractsMainnet
+const web3 = new Web3(process.env.WEB3_PROVIDER || "https://testnet2.sovryn.app/rpc");
 
 
 module.exports = {
