@@ -1,6 +1,6 @@
 {
   "name": "@blobfishkate/sovryncontracts",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "Contract addresses and ABIs used by the Sovryn Protocol",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "url": "https://github.com/BetsyBraddock/Sovryn-Contracts-Package.git"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "web3": "^1.4.0"
   }
 }

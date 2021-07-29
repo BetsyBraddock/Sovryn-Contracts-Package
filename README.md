@@ -1,4 +1,4 @@
-# Sovryn Contracts Packackage
+# Sovryn Contracts Package
 
 This package contains the abis and contracts addresses for smart contracts used by the Sovryn Protocol
 
