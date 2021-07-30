@@ -14,9 +14,15 @@ To import just an address:
 To get an individual address:
 `const BTC_address = addresses.BTC_token;`
 
-To import a contract:
+To import a single contract:
 `import { BTC_lending } from "@blobfishkate/sovryncontracts";`
 where BTC_lending is the name of the contract.
+
+To import all contracts as a single object where keys are contract names:
+`import { contracts } from "@blobfishkate/sovryncontracts";`
+where contracts.BTC_lending is the BTC_lending contract.
+
+Github repo is here: https://github.com/BetsyBraddock/Sovryn-Contracts-Package
 
 A list of exported addresses can be found in /contract-mainnet.json or /contracts-testnet.json.
 
