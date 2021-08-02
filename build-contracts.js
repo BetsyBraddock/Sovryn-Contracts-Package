@@ -77,8 +77,8 @@ module.exports = {
     Governor_Admin: new web3.eth.Contract(abiGovernorAlpha, addresses.governorAdmin.toLowerCase()),
 
     //Proxy contracts
-    BTC_proxy_new: new web3.eth.Contract(abiWrapperProxy_new, addresses.btcWrapperProxy_new.toLowerCase()),
-    BTC_proxy_old: new web3.eth.Contract(abiWrapperProxy_old, addresses.btcWrapperProxy_old.toLowerCase()),
+    BTC_proxy_new: new web3.eth.Contract(abiWrapperProxy_new, addresses.proxy3.toLowerCase()),
+    BTC_proxy_old: new web3.eth.Contract(abiWrapperProxy_old, addresses.btcWrapperProxy_new.toLowerCase()),
     FeeSharingProxy: new web3.eth.Contract(abiFeeSharingProxy, addresses.feeSharingProxy.toLowerCase()),
 
     //Swaps and prices
