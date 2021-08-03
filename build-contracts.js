@@ -17,7 +17,8 @@ const abiPriceFeed = require("./abi/abiPriceFeed.json");
 const abiLiquidityMining = require("./abi/mining_proxy.json");
 const abiFeeSharingProxy = require("./abi/abiFeeSharingProxy.json");
 const abiOracle = require("./abi/abiOracle.json");
-const abiDevelopmentFund = require("./abi/abiDevelopmentFund.json")
+const abiDevelopmentFund = require("./abi/abiDevelopmentFund.json");
+const abiMultisig = require("./abi/abiMultisig.json");
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -98,8 +99,9 @@ module.exports = {
     vesting2: new web3.eth.Contract(abiVesting, addresses.vestingRegistry2.toLowerCase()),
     vesting3: new web3.eth.Contract(abiVesting, addresses.vestingRegistry3.toLowerCase()),
     staking: new web3.eth.Contract(abiStaking, addresses.staking.toLowerCase()),
+    liquidityMining: new web3.eth.Contract(abiLiquidityMining, addresses.liquidityMiningProxy.toLowerCase()),
 
-    liquidityMining: new web3.eth.Contract(abiLiquidityMining, addresses.liquidityMiningProxy.toLowerCase())
+    multisig: new web3.eth.Contract(abiMultisig, addresses.multisig.toLowerCase())
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
