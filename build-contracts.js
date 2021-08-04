@@ -21,6 +21,8 @@ const abiDevelopmentFund = require("./abi/abiDevelopmentFund.json");
 const abiMultisig = require("./abi/abiMultisig.json");
 const abiStakingReward = require("./abi/abiStakingReward.json");
 const abiLockedSOV = require("./abi/LockedSOV.json");
+const abiFeeHelper = require("./abi/FeesHelper.json");
+const abiAffiliateFees = require("./abi/AffiliateFeeSharing.json");
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -30,7 +32,8 @@ const web3 = new Web3(process.env.WEB3_PROVIDER || "https://testnet2.sovryn.app/
 
 
 module.exports = {
-    sovrynProtocol: new web3.eth.Contract(abiComplete, addresses.Protocol.toLowerCase()),
+    /** FeesHelper,  */
+    sovrynProtocol: new web3.eth.Contract(abiComplete.concat(abiFeeHelper).concat(abiAffiliateFees), addresses.Protocol.toLowerCase()),
 
     // Lending contracts
     DOC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.DOC_lending.toLowerCase()),
