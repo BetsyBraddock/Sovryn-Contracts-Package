@@ -19,6 +19,7 @@ const abiFeeSharingProxy = require("./abi/abiFeeSharingProxy.json");
 const abiOracle = require("./abi/abiOracle.json");
 const abiDevelopmentFund = require("./abi/abiDevelopmentFund.json");
 const abiMultisig = require("./abi/abiMultisig.json");
+const abiStakingReward = require("./abi/abiStakingReward.json")
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -105,6 +106,10 @@ module.exports = {
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
+    /** IF MAINNET */
     module.exports.AdoptionFund = new web3.eth.Contract(abiDevelopmentFund, addresses.AdoptionFund.toLowerCase());
     module.exports.Development_Fund = new web3.eth.Contract(abiDevelopmentFund, addresses.DevelopmentFund.toLowerCase());
+} else {
+    /** IF TESTNET */
+    module.exports.stakingReward = new web3.eth.Contract(abiStakingReward, addresses.stakingReward.toLowerCase())
 }

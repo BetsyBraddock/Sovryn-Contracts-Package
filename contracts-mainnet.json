@@ -62,6 +62,7 @@
     "governorOwner": "0x6496df39d000478a7a7352c01e0e713835051ccd",
     "governorAdmin": "0xff25f66b7d7f385503d70574ae0170b6b1622dad",
     "staking": "0x5684a06cab22db16d901fee2a5c081b4c91ea40e",
+    "stakingReward": "0x5B7dda87074F12244a7AD19Dd40B02Bd62bC9511",
     "vestingRegistry1": "0x80b036ae59b3e38b573837c01bb1db95515b7e6b",
     "vestingRegistry2": "0x0a9bDbf5e104a30fb4c99f6812FB85B60Fd8D372",
     "vestingRegistry3": "0x14F3FE332e21Ef3f5d244C45C8D5fbFcEF2FB5c9",
