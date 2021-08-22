@@ -23,7 +23,8 @@ const abiStakingReward = require("./abi/abiStakingReward.json");
 const abiLockedSOV = require("./abi/LockedSOV.json");
 const abiFeeHelper = require("./abi/FeesHelper.json");
 const abiAffiliateFees = require("./abi/AffiliateFeeSharing.json");
-const abiProtocolSettings = require("./abi/abiProtocolSettings.json")
+const abiProtocolSettings = require("./abi/abiProtocolSettings.json");
+const abiInterestUser = require("./abi/abiInterestUser.json");
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -37,11 +38,11 @@ module.exports = {
     sovrynProtocol: new web3.eth.Contract(abiComplete.concat(abiFeeHelper).concat(abiAffiliateFees).concat(abiProtocolSettings), addresses.Protocol.toLowerCase()),
 
     // Lending contracts
-    DOC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.DOC_lending.toLowerCase()),
-    BTC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.BTC_lending.toLowerCase()),
-    USDT_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.USDT_lending.toLowerCase()),
-    BPRO_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.BPRO_lending.toLowerCase()),
-    XUSD_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents), addresses.XUSD_lending.toLowerCase()),
+    DOC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.DOC_lending.toLowerCase()),
+    BTC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.BTC_lending.toLowerCase()),
+    USDT_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.USDT_lending.toLowerCase()),
+    BPRO_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.BPRO_lending.toLowerCase()),
+    XUSD_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.XUSD_lending.toLowerCase()),
 
     //AMM contracts
     DOC_amm: new web3.eth.Contract(abiLiquidityPool, addresses.DOC_amm.toLowerCase()),
