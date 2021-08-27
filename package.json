@@ -14,5 +14,6 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "web3": "^1.4.0"
-  }
+  },
+  "module": "true"
 }
