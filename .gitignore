@@ -8,3 +8,4 @@ tmp/*
 stderr.txt
 stdout.txt
 *.csv
+/lib
