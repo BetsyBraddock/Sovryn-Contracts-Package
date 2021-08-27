@@ -1,30 +1,31 @@
 require('dotenv').config();
 
+import abiComplete from './abi/ISovryn';
+import abiLoanToken from './abi/abiLoanToken';
+import abiLoanOpeningEvents from './abi/abiLoanOpeningEvents';
+import abiERC20 from './abi/abiEERC20';
+import abiGovernorAlpha from './abi/abiGovenorAlpha';
+import abiSovrynSwapNetwork from './abi/abiSovrynSwapNetwork';
+import abiLiquidityPool from './abi/abiLiquidityPoolV2Converter';
+import abiLiquidityPoolV1 from './abi/abiLiquidityPoolV1Converter';
+import abiVesting from './abi/VestingRegistry';
+import abiStaking from './abi/abiStaking';
+import abiWrapperProxy_new from './abi/abiWrapperProxy_new';
+import abiWrapperProxy_old from './abi/abiRBTCWrapperProxy_old';
+import abiPriceFeed from './abi/abiPriceFeed';
+import abiLiquidityMining from './abi/mining_proxy';
+import abiFeeSharingProxy from './abi/abiFeeSharingProxy';
+import abiOracle from './abi/abiOracle';
+import abiDevelopmentFund from './abi/abiDevelopmentFund';
+import abiMultisig from './abi/abiMultisig';
+import abiStakingReward from './abi/abiStakingReward';
+import abiLockedSOV from './abi/LockedSOV';
+import abiFeeHelper from './abi/FeesHelper';
+import abiAffiliateFees from './abi/AffiliateFeeSharing';
+import abiProtocolSettings from './abi/abiProtocolSettings';
+import abiInterestUser from './abi/abiInterestUser';
+
 import Web3 from 'web3';
-const abiComplete = require('../abi/ISovryn.json');
-const abiLoanToken = require('../abi/abiLoanToken.json');
-const abiLoanOpeningEvents = require('../abi/abiLoanOpeningEvents.json');
-const abiERC20 = require('../abi/abiEERC20.json');
-const abiGovernorAlpha = require('../abi/abiGovenorAlpha.json');
-const abiSovrynSwapNetwork = require('../abi/abiSovrynSwapNetwork.json');
-const abiLiquidityPool = require('../abi/abiLiquidityPoolV2Converter.json');
-const abiLiquidityPoolV1 = require('../abi/abiLiquidityPoolV1Converter.json');
-const abiVesting = require('../abi/VestingRegistry.json');
-const abiStaking = require('../abi/abiStaking.json');
-const abiWrapperProxy_new = require('../abi/abiWrapperProxy_new.json');
-const abiWrapperProxy_old = require('../abi/abiRBTCWrapperProxy_old.json');
-const abiPriceFeed = require('../abi/abiPriceFeed.json');
-const abiLiquidityMining = require('../abi/mining_proxy.json');
-const abiFeeSharingProxy = require('../abi/abiFeeSharingProxy.json');
-const abiOracle = require('../abi/abiOracle.json');
-const abiDevelopmentFund = require('../abi/abiDevelopmentFund.json');
-const abiMultisig = require('../abi/abiMultisig.json');
-const abiStakingReward = require('../abi/abiStakingReward.json');
-const abiLockedSOV = require('../abi/LockedSOV.json');
-const abiFeeHelper = require('../abi/FeesHelper.json');
-const abiAffiliateFees = require('../abi/AffiliateFeeSharing.json');
-const abiProtocolSettings = require('../abi/abiProtocolSettings.json');
-const abiInterestUser = require('../abi/abiInterestUser.json');
 import { AbiItem } from 'web3-utils';
 
 import * as contractsTestnet from './contracts-testnet.json';
@@ -41,7 +42,7 @@ const addresses: AddressListData =
 
 const web3 = new Web3(process.env.WEB3_PROVIDER || 'https://testnet2.sovryn.app/rpc');
 
-export default {
+export const contractMap = {
   /** TODO: Include AbiAffiliateFees and AbiProtocolSettings here. Typescript error, not sure why  */
   sovrynProtocol: new web3.eth.Contract(
     abiComplete.concat(abiFeeHelper).concat(abiAffiliateFees).concat(abiProtocolSettings) as AbiItem[],
@@ -113,7 +114,7 @@ export default {
   //Proxy contracts
   BTC_proxy_new: new web3.eth.Contract(abiWrapperProxy_new as AbiItem[], addresses.proxy3.toLowerCase()),
   BTC_proxy_old: new web3.eth.Contract(abiWrapperProxy_old as AbiItem[], addresses.btcWrapperProxy_new.toLowerCase()),
-  FeeSharingProxy: new web3.eth.Contract(abiFeeSharingProxy as AbiItem[], addresses.feeSharingProxy.toLowerCase()),
+  feeSharingProxy: new web3.eth.Contract(abiFeeSharingProxy as AbiItem[], addresses.feeSharingProxy.toLowerCase()),
 
   //Swaps and prices
   swapNetwork: new web3.eth.Contract(abiSovrynSwapNetwork as AbiItem[], addresses.swapNetwork.toLowerCase()),
@@ -128,11 +129,14 @@ export default {
   BNBS_oracle: new web3.eth.Contract(abiOracle as AbiItem[], addresses.BNBS_oracle.toLowerCase()),
 
   //Vesting / staking / mining
-  vesting1: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry1.toLowerCase()),
-  vesting2: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry2.toLowerCase()),
-  vesting3: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry3.toLowerCase()),
+  vestingRegistry1: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry1.toLowerCase()),
+  vestingRegistry2: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry2.toLowerCase()),
+  vestingRegistry3: new web3.eth.Contract(abiVesting as AbiItem[], addresses.vestingRegistry3.toLowerCase()),
   staking: new web3.eth.Contract(abiStaking as AbiItem[], addresses.staking.toLowerCase()),
-  liquidityMining: new web3.eth.Contract(abiLiquidityMining as AbiItem[], addresses.liquidityMiningProxy.toLowerCase()),
+  liquidityMiningProxy: new web3.eth.Contract(
+    abiLiquidityMining as AbiItem[],
+    addresses.liquidityMiningProxy.toLowerCase(),
+  ),
   lockedSOV: new web3.eth.Contract(abiLockedSOV as AbiItem[], addresses.lockedSOV.toLowerCase()),
 
   multisig: new web3.eth.Contract(abiMultisig as AbiItem[], addresses.multisig.toLowerCase()),
