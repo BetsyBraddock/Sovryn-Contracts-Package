@@ -113,14 +113,13 @@ module.exports = {
     liquidityMining: new web3.eth.Contract(abiLiquidityMining, addresses.liquidityMiningProxy.toLowerCase()),
     lockedSOV: new web3.eth.Contract(abiLockedSOV, addresses.lockedSOV.toLowerCase()),
 
-    multisig: new web3.eth.Contract(abiMultisig, addresses.multisig.toLowerCase())
+    multisig: new web3.eth.Contract(abiMultisig, addresses.multisig.toLowerCase()),
+
+    stakingReward: new web3.eth.Contract(abiStakingReward, addresses.stakingReward.toLowerCase())
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
     /** IF MAINNET */
     module.exports.AdoptionFund = new web3.eth.Contract(abiDevelopmentFund, addresses.AdoptionFund.toLowerCase());
     module.exports.Development_Fund = new web3.eth.Contract(abiDevelopmentFund, addresses.DevelopmentFund.toLowerCase());
-} else {
-    /** IF TESTNET */
-    module.exports.stakingReward = new web3.eth.Contract(abiStakingReward, addresses.stakingReward.toLowerCase())
 }
