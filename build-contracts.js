@@ -123,4 +123,8 @@ if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
     /** IF MAINNET */
     module.exports.AdoptionFund = new web3.eth.Contract(abiDevelopmentFund, addresses.AdoptionFund.toLowerCase());
     module.exports.Development_Fund = new web3.eth.Contract(abiDevelopmentFund, addresses.DevelopmentFund.toLowerCase());
+} else {
+    module.exports.RIF_amm = new web3.eth.Contract(abiLiquidityPoolV1, addresses.RIF_amm.toLowerCase());
+    module.exports.RIF_oracle = new web3.eth.Contract(abiOracle, addresses.RIF_oracle.toLowerCase());
+    module.exports.RIF_token = new web3.eth.Contract(abiERC20, addresses.RIF_token.toLowerCase());
 }
