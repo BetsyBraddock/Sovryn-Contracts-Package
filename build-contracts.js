@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const Web3 = require("web3");
 const abiComplete = require("./abi/ISovryn.json");
+const abiCompleteNew = require("./abi/ISovryn_new.json");
 const abiLoanToken = require("./abi/abiLoanToken.json");
 const abiLoanOpeningEvents = require("./abi/abiLoanOpeningEvents.json");
 const abiERC20 = require("./abi/abiEERC20.json");
@@ -116,7 +117,12 @@ module.exports = {
 
     multisig: new web3.eth.Contract(abiMultisig, addresses.multisig.toLowerCase()),
 
-    stakingReward: new web3.eth.Contract(abiStakingReward, addresses.stakingReward.toLowerCase())
+    stakingReward: new web3.eth.Contract(abiStakingReward, addresses.stakingReward.toLowerCase()),
+
+    //RIF token
+    RIF_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.RIF_amm.toLowerCase()),
+    RIF_oracle: new web3.eth.Contract(abiOracle, addresses.RIF_oracle.toLowerCase()),
+    RIF_token: new web3.eth.Contract(abiERC20, addresses.RIF_token.toLowerCase())
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
@@ -124,7 +130,5 @@ if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
     module.exports.AdoptionFund = new web3.eth.Contract(abiDevelopmentFund, addresses.AdoptionFund.toLowerCase());
     module.exports.Development_Fund = new web3.eth.Contract(abiDevelopmentFund, addresses.DevelopmentFund.toLowerCase());
 } else {
-    module.exports.RIF_amm = new web3.eth.Contract(abiLiquidityPoolV1, addresses.RIF_amm.toLowerCase());
-    module.exports.RIF_oracle = new web3.eth.Contract(abiOracle, addresses.RIF_oracle.toLowerCase());
-    module.exports.RIF_token = new web3.eth.Contract(abiERC20, addresses.RIF_token.toLowerCase());
+    module.exports.sovrynProtocol = new web3.eth.Contract(abiCompleteNew.concat(abiSwapsExternal).concat(abiAffiliateFees).concat(abiProtocolSettings), addresses.Protocol.toLowerCase())
 }
