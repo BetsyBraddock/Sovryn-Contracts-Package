@@ -1,6 +1,6 @@
 {
   "name": "@blobfishkate/sovryncontracts",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "description": "Contract addresses and ABIs used by the Sovryn Protocol",
   "main": "index.js",
   "scripts": {
