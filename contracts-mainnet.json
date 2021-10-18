@@ -74,9 +74,10 @@
     "vestingRegistry1": "0x80b036ae59b3e38b573837c01bb1db95515b7e6b",
     "vestingRegistry2": "0x0a9bDbf5e104a30fb4c99f6812FB85B60Fd8D372",
     "vestingRegistry3": "0x14F3FE332e21Ef3f5d244C45C8D5fbFcEF2FB5c9",
+    "vestingRegistryProxy": "0xe24ABdB7DcaB57F3cbe4cBDDd850D52F143eE920",
     "OriginInvestorsClaim": "0xE0f5BF8d0C58d9c8A078DB75A9D379E6CDF3149E",
     "multisig": "0x924f5ad34698Fd20c90Fe5D5A8A0abd3b42dc711",
-    "feeSharingProxy": "0x12B1B0C67d9A771EB5Db7726d23fdc6848fd93ef",
+    "feeSharingProxy": "0x115cAF168c51eD15ec535727F64684D33B7b08D1",
     "lockedSOV": "0xB4e4517cA4Edf591Dcafb702999F04f02E57D978",
     "GovernorVaultOwner": "0x05f4f068DF59a5aA7911f57cE4f41ebFBcB8E247",
     "GovernorVaultAdmin": "0x51C754330c6cD04B810014E769Dab0343E31409E"

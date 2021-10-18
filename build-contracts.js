@@ -27,6 +27,7 @@ const abiAffiliateFees = require("./abi/AffiliateFeeSharing.json");
 const abiProtocolSettings = require("./abi/abiProtocolSettings.json");
 const abiInterestUser = require("./abi/abiInterestUser.json");
 const abiSwapsExternal = require("./abi/abiSwapsExternal.json")
+const abiVestingLogic = require("./abi/VestingLogic.json")
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -111,6 +112,7 @@ module.exports = {
     vesting1: new web3.eth.Contract(abiVesting, addresses.vestingRegistry1.toLowerCase()),
     vesting2: new web3.eth.Contract(abiVesting, addresses.vestingRegistry2.toLowerCase()),
     vesting3: new web3.eth.Contract(abiVesting, addresses.vestingRegistry3.toLowerCase()),
+    vestingProxy: new web3.eth.Contract(abiVestingLogic, addresses.vestingRegistryProxy.toLowerCase()),
     staking: new web3.eth.Contract(abiStaking, addresses.staking.toLowerCase()),
     liquidityMining: new web3.eth.Contract(abiLiquidityMining, addresses.liquidityMiningProxy.toLowerCase()),
     lockedSOV: new web3.eth.Contract(abiLockedSOV, addresses.lockedSOV.toLowerCase()),
