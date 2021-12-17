@@ -114,6 +114,7 @@ module.exports = {
     MOC_oracle: new web3.eth.Contract(abiOracle, addresses.MOC_oracle.toLowerCase()),
     BNBS_oracle: new web3.eth.Contract(abiOracle, addresses.BNBS_oracle.toLowerCase()),
     FISH_oracle: new web3.eth.Contract(abiOracle, addresses.FISH_oracle.toLowerCase()),
+    MYNT_oracle: new web3.eth.Contract(abiOracle, addresses.MYNT_oracle.toLowerCase()),
 
     //Vesting / staking / mining
     vesting1: new web3.eth.Contract(abiVesting, addresses.vestingRegistry1.toLowerCase()),
