@@ -57,6 +57,8 @@ module.exports = {
     XUSD_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.XUSD_amm.toLowerCase()),
     BNBS_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.BNBS_amm.toLowerCase()),
     FISH_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.FISH_amm.toLowerCase()),
+    MYNT_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.MYNT_amm.toLowerCase()),
+    RIF_amm: new web3.eth.Contract(abiLiquidityPoolV1, addresses.RIF_amm.toLowerCase()),
 
     //ERC20 tokens
     DOC_token: new web3.eth.Contract(abiERC20, addresses.DOC_token.toLowerCase()),
@@ -69,6 +71,9 @@ module.exports = {
     XUSD_token: new web3.eth.Contract(abiERC20, addresses.XUSD_token.toLowerCase()),
     BNBS_token: new web3.eth.Contract(abiERC20, addresses.BNBS_token.toLowerCase()),
     FISH_token: new web3.eth.Contract(abiERC20, addresses.FISH_token.toLowerCase()),
+    MYNT_token: new web3.eth.Contract(abiERC20, addresses.MYNT_token.toLowerCase()),
+    RIF_token: new web3.eth.Contract(abiERC20, addresses.RIF_token.toLowerCase()),
+
     NTSov_token: new web3.eth.Contract(abiERC20, addresses.NTSOVToken.toLowerCase()),
 
     //ERC20 pool tokens
@@ -84,6 +89,8 @@ module.exports = {
     XUSD_pool: new web3.eth.Contract(abiERC20, addresses.XUSD_pool.toLowerCase()),
     BNBS_pool: new web3.eth.Contract(abiERC20, addresses.BNBS_pool.toLowerCase()),
     FISH_pool: new web3.eth.Contract(abiERC20, addresses.FISH_pool.toLowerCase()),
+    MYNT_pool: new web3.eth.Contract(abiERC20, addresses.MYNT_pool.toLowerCase()),
+    RIF_pool: new web3.eth.Contract(abiERC20, addresses.RIF_pool.toLowerCase()),
 
     //Treasury contracts
     Governor_Alpha: new web3.eth.Contract(abiGovernorAlpha, addresses.governorAlpha.toLowerCase()),
