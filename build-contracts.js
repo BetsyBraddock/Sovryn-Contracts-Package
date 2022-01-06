@@ -38,7 +38,7 @@ const web3 = new Web3(process.env.WEB3_PROVIDER || "https://testnet2.sovryn.app/
 
 module.exports = {
     /** FeesHelper,  */
-    sovrynProtocol: new web3.eth.Contract(abiComplete.concat(abiAffiliateFees).concat(abiProtocolSettings), addresses.Protocol.toLowerCase()),
+    sovrynProtocol: new web3.eth.Contract(abiComplete.concat(abiAffiliateFees).concat(abiProtocolSettings).concat(abiInterestUser), addresses.Protocol.toLowerCase()),
 
     // Lending contracts
     DOC_lending: new web3.eth.Contract(abiLoanToken.concat(abiLoanOpeningEvents).concat(abiInterestUser), addresses.DOC_lending.toLowerCase()),
