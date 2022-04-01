@@ -28,6 +28,7 @@ const abiInterestUser = require("./abi/abiInterestUser.json");
 const abiSwapsExternal = require("./abi/abiSwapsExternal.json")
 const abiVestingLogic = require("./abi/VestingLogic.json")
 const abiSettlement = require("./abi/abiSettlement.json")
+const abiOrderBook = require("./abi/abiOrderBook.json")
 
 const contractsTestnet = require("./contracts-testnet.json");
 const contractsMainnet = require("./contracts-mainnet.json");
@@ -135,7 +136,8 @@ module.exports = {
     RIF_token: new web3.eth.Contract(abiERC20, addresses.RIF_token.toLowerCase()),
 
     //Limit orders
-    settlement: new web3.eth.Contract(abiSettlement, addresses.settlement.toLowerCase())
+    settlement: new web3.eth.Contract(abiSettlement, addresses.settlement.toLowerCase()),
+    orderBook: new web3.eth.Contract(abiOrderBook, addresses.orderBook.toLowerCase())
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
