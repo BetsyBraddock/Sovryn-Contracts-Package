@@ -137,7 +137,6 @@ module.exports = {
 
     //Limit orders
     settlement: new web3.eth.Contract(abiSettlement, addresses.settlement.toLowerCase()),
-    orderBook: new web3.eth.Contract(abiOrderBook, addresses.orderBook.toLowerCase())
 }
 
 if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
@@ -145,5 +144,6 @@ if (process.env.NETWORK_MODE && process.env.NETWORK_MODE === "mainnet") {
     module.exports.AdoptionFund = new web3.eth.Contract(abiDevelopmentFund, addresses.AdoptionFund.toLowerCase());
     module.exports.Development_Fund = new web3.eth.Contract(abiDevelopmentFund, addresses.DevelopmentFund.toLowerCase());
 } else {
-    module.exports.sovrynProtocol = new web3.eth.Contract(abiCompleteNew.concat(abiSwapsExternal).concat(abiAffiliateFees).concat(abiProtocolSettings).concat(abiInterestUser), addresses.Protocol.toLowerCase())
+    module.exports.orderBook = new web3.eth.Contract(abiOrderBook, addresses.orderBook.toLowerCase());
+    module.exports.orderBookMainnet = new web3.eth.Contract(abiOrderBook, addresses.orderBookMainnet.toLowerCase());
 }
