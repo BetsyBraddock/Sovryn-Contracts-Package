@@ -11,49 +11,34 @@
             {
                 "components": [
                     {
-                        "internalType": "bytes32",
-                        "name": "loanId",
-                        "type": "bytes32"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "leverageAmount",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "address",
-                        "name": "loanTokenAddress",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "loanTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "collateralTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "collateralTokenAddress",
+                        "name": "maker",
                         "type": "address"
                     },
                     {
                         "internalType": "address",
-                        "name": "trader",
+                        "name": "fromToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "toToken",
                         "type": "address"
                     },
                     {
                         "internalType": "uint256",
-                        "name": "minEntryPrice",
+                        "name": "amountIn",
                         "type": "uint256"
                     },
                     {
-                        "internalType": "bytes32",
-                        "name": "loanDataBytes",
-                        "type": "bytes32"
+                        "internalType": "uint256",
+                        "name": "amountOutMin",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
                     },
                     {
                         "internalType": "uint256",
@@ -62,7 +47,7 @@
                     },
                     {
                         "internalType": "uint256",
-                        "name": "createdTimestamp",
+                        "name": "created",
                         "type": "uint256"
                     },
                     {
@@ -82,12 +67,18 @@
                     }
                 ],
                 "indexed": false,
-                "internalType": "struct MarginOrders.Order",
+                "internalType": "struct Orders.Order",
                 "name": "order",
                 "type": "tuple"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "limitPrice",
+                "type": "uint256"
             }
         ],
-        "name": "MarginOrderCreated",
+        "name": "OrderCreated",
         "type": "event"
     },
     {
@@ -108,19 +99,6 @@
         ],
         "name": "OwnershipTransferred",
         "type": "event"
-    },
-    {
-        "inputs": [],
-        "name": "DOMAIN_SEPARATOR",
-        "outputs": [
-            {
-                "internalType": "bytes32",
-                "name": "",
-                "type": "bytes32"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
     },
     {
         "inputs": [
@@ -151,49 +129,34 @@
             {
                 "components": [
                     {
-                        "internalType": "bytes32",
-                        "name": "loanId",
-                        "type": "bytes32"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "leverageAmount",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "address",
-                        "name": "loanTokenAddress",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "loanTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "collateralTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "collateralTokenAddress",
+                        "name": "maker",
                         "type": "address"
                     },
                     {
                         "internalType": "address",
-                        "name": "trader",
+                        "name": "fromToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "toToken",
                         "type": "address"
                     },
                     {
                         "internalType": "uint256",
-                        "name": "minEntryPrice",
+                        "name": "amountIn",
                         "type": "uint256"
                     },
                     {
-                        "internalType": "bytes32",
-                        "name": "loanDataBytes",
-                        "type": "bytes32"
+                        "internalType": "uint256",
+                        "name": "amountOutMin",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
                     },
                     {
                         "internalType": "uint256",
@@ -202,7 +165,7 @@
                     },
                     {
                         "internalType": "uint256",
-                        "name": "createdTimestamp",
+                        "name": "created",
                         "type": "uint256"
                     },
                     {
@@ -221,9 +184,14 @@
                         "type": "bytes32"
                     }
                 ],
-                "internalType": "struct MarginOrders.Order",
+                "internalType": "struct Orders.Order",
                 "name": "order",
                 "type": "tuple"
+            },
+            {
+                "internalType": "uint256",
+                "name": "limitPrice",
+                "type": "uint256"
             }
         ],
         "name": "createOrder",
@@ -234,8 +202,27 @@
     {
         "inputs": [
             {
+                "internalType": "bytes32",
+                "name": "hash",
+                "type": "bytes32"
+            }
+        ],
+        "name": "getMaker",
+        "outputs": [
+            {
                 "internalType": "address",
-                "name": "trader",
+                "name": "maker",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "maker",
                 "type": "address"
             },
             {
@@ -254,49 +241,34 @@
             {
                 "components": [
                     {
-                        "internalType": "bytes32",
-                        "name": "loanId",
-                        "type": "bytes32"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "leverageAmount",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "address",
-                        "name": "loanTokenAddress",
-                        "type": "address"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "loanTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "uint256",
-                        "name": "collateralTokenSent",
-                        "type": "uint256"
-                    },
-                    {
-                        "internalType": "address",
-                        "name": "collateralTokenAddress",
+                        "name": "maker",
                         "type": "address"
                     },
                     {
                         "internalType": "address",
-                        "name": "trader",
+                        "name": "fromToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "toToken",
                         "type": "address"
                     },
                     {
                         "internalType": "uint256",
-                        "name": "minEntryPrice",
+                        "name": "amountIn",
                         "type": "uint256"
                     },
                     {
-                        "internalType": "bytes32",
-                        "name": "loanDataBytes",
-                        "type": "bytes32"
+                        "internalType": "uint256",
+                        "name": "amountOutMin",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
                     },
                     {
                         "internalType": "uint256",
@@ -305,7 +277,7 @@
                     },
                     {
                         "internalType": "uint256",
-                        "name": "createdTimestamp",
+                        "name": "created",
                         "type": "uint256"
                     },
                     {
@@ -324,7 +296,7 @@
                         "type": "bytes32"
                     }
                 ],
-                "internalType": "struct MarginOrders.Order[]",
+                "internalType": "struct Orders.Order[]",
                 "name": "orders",
                 "type": "tuple[]"
             }
@@ -335,27 +307,8 @@
     {
         "inputs": [
             {
-                "internalType": "bytes32",
-                "name": "hash",
-                "type": "bytes32"
-            }
-        ],
-        "name": "getTrader",
-        "outputs": [
-            {
                 "internalType": "address",
-                "name": "trader",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "collateralToken",
+                "name": "fromToken",
                 "type": "address"
             },
             {
@@ -369,7 +322,7 @@
                 "type": "uint256"
             }
         ],
-        "name": "hashesOfCollateralToken",
+        "name": "hashesOfFromToken",
         "outputs": [
             {
                 "internalType": "bytes32[]",
@@ -384,7 +337,7 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "trader",
+                "name": "maker",
                 "type": "address"
             },
             {
@@ -398,7 +351,36 @@
                 "type": "uint256"
             }
         ],
-        "name": "hashesOfTrader",
+        "name": "hashesOfMaker",
+        "outputs": [
+            {
+                "internalType": "bytes32[]",
+                "name": "",
+                "type": "bytes32[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "toToken",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "page",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "limit",
+                "type": "uint256"
+            }
+        ],
+        "name": "hashesOfToToken",
         "outputs": [
             {
                 "internalType": "bytes32[]",
@@ -446,11 +428,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "collateralToken",
+                "name": "fromToken",
                 "type": "address"
             }
         ],
-        "name": "numberOfHashesOfCollateralToken",
+        "name": "numberOfHashesOfFromToken",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -465,11 +447,30 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "trader",
+                "name": "maker",
                 "type": "address"
             }
         ],
-        "name": "numberOfHashesOfTrader",
+        "name": "numberOfHashesOfMaker",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "toToken",
+                "type": "address"
+            }
+        ],
+        "name": "numberOfHashesOfToToken",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -491,49 +492,34 @@
         "name": "orderOfHash",
         "outputs": [
             {
-                "internalType": "bytes32",
-                "name": "loanId",
-                "type": "bytes32"
-            },
-            {
-                "internalType": "uint256",
-                "name": "leverageAmount",
-                "type": "uint256"
-            },
-            {
                 "internalType": "address",
-                "name": "loanTokenAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "loanTokenSent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "collateralTokenSent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "collateralTokenAddress",
+                "name": "maker",
                 "type": "address"
             },
             {
                 "internalType": "address",
-                "name": "trader",
+                "name": "fromToken",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "toToken",
                 "type": "address"
             },
             {
                 "internalType": "uint256",
-                "name": "minEntryPrice",
+                "name": "amountIn",
                 "type": "uint256"
             },
             {
-                "internalType": "bytes32",
-                "name": "loanDataBytes",
-                "type": "bytes32"
+                "internalType": "uint256",
+                "name": "amountOutMin",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
             },
             {
                 "internalType": "uint256",
@@ -542,7 +528,7 @@
             },
             {
                 "internalType": "uint256",
-                "name": "createdTimestamp",
+                "name": "created",
                 "type": "uint256"
             },
             {
