@@ -74,5 +74,6 @@
     "lockedSOV": "0x6b94Da2d05039173d017359553D685Acfbaa782F",
     "GovernorVaultOwner": "0x05f4f068DF59a5aA7911f57cE4f41ebFBcB8E247",
     "GovernorVaultAdmin": "0x51C754330c6cD04B810014E769Dab0343E31409E",
-    "settlement": "0x4dfb9ab1653Eb5A295109E02e37fc222D85fdA74"
+    "settlement": "0x4dfb9ab1653Eb5A295109E02e37fc222D85fdA74",
+    "mynt_subreserve": "0xC70882018136AaC283D287302932dA56371d6514"
 }
