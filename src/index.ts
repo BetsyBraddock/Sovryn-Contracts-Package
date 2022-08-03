@@ -24,6 +24,8 @@ import lockedSov from './abi/LockedSOV.json';
 import vestingLogic from './abi/VestingLogic.json';
 import vestingRegistry from './abi/VestingRegistry.json';
 import settlement from './abi/abiSettlement.json';
+import troveManager from './abi/abiTroveManager.json';
+import stabilityPool from './abi/abiStabilityPool.json';
 
 import { AbiItem } from 'web3-utils';
 
@@ -57,3 +59,5 @@ export const abiLockedSov = lockedSov as AbiItem[];
 export const abiVestingLogic = vestingLogic as AbiItem[];
 export const abiVestingRegistry = vestingRegistry as AbiItem[];
 export const abiSettlement = settlement as AbiItem[];
+export const abiTroveManager = troveManager as AbiItem[];
+export const abiStabilityPool = stabilityPool as AbiItem[];
